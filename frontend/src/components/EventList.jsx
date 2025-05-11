@@ -8,15 +8,15 @@ const EventList = ({ events, loading, error }) => {
     </div>
   );
 
-  if (error) return (
-    <div className="text-center py-12">
+  if (  error) return (
+    <div className="text-center py-12 flex flex-col w-full">
       <div className="bg-red-100 text-red-700 p-6 rounded-lg shadow-md inline-block max-w-sm mx-auto transition-all transform hover:scale-105">
         <p className="font-semibold">Error loading events:</p>
         <p>{error}</p>
       </div>
-      <button 
+      <button
         onClick={() => window.location.reload()}
-        className="mt-6 px-6 py-3 bg-gray-200 rounded-lg shadow-md text-gray-700 hover:bg-gray-300 transition-all transform hover:scale-105"
+        className="mt-6 px-6 py-3 bg-gray-200 rounded-lg shadow-md text-gray-700 hover:bg-gray-300 transition-all transform hover:scale-105 w-fit mx-auto"
       >
         Try Again
       </button>
