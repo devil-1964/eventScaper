@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors({
   origin:process.env.FRONTEND_URL,
   methods: ['GET', 'POST'],
-  credentials: true // If you're sending cookies or authorization headers
+  credentials: true 
 }));
 
 app.use(express.json());

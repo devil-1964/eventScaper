@@ -2,20 +2,20 @@ import { useState } from 'react';
 import useFetchEvents from '../hooks/useFetchEvents';
 import EventList from '../components/EventList';
 
-const API_URL =import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL;
 
 const EventsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const { data, loading, error, refetch } = useFetchEvents(`${API_URL}/events`);
 
-  const filteredEvents = data?.data 
+  const filteredEvents = data?.data
     ? {
-        ...data,
-        data: data.data.filter(event => 
-          event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          event.description.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-      }
+      ...data,
+      data: data.data.filter(event =>
+        event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        event.description.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    }
     : null;
 
   return (
@@ -27,7 +27,7 @@ const EventsPage = () => {
             Discover amazing events happening near you
           </p>
         </div>
-        
+
         <div className="mb-8 max-w-md mx-auto">
           <div className="relative">
             <input
@@ -44,13 +44,13 @@ const EventsPage = () => {
             </div>
           </div>
         </div>
-        
-        <EventList 
-          events={filteredEvents || data} 
-          loading={loading} 
-          error={error} 
+
+        <EventList
+          events={filteredEvents || data}
+          loading={loading}
+          error={error}
         />
-        
+
         {!loading && data?.last_updated && (
           <div className="mt-8 text-center text-sm text-gray-500">
             Last updated: {new Date(data.last_updated).toLocaleString()}

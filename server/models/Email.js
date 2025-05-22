@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const EmailSchema = new mongoose.Schema({
   email: {
@@ -13,7 +13,7 @@ const EmailSchema = new mongoose.Schema({
   submittedAt: {
     type: Date,
     default: Date.now,
-  }
+  },
 });
 
-module.exports = mongoose.model('Email', EmailSchema);
+module.exports = mongoose.model("Email", EmailSchema);
